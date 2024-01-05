@@ -20,11 +20,11 @@ function HomeScreen({navigation}){
       <ImageBackground source={bg2} style={styles.bg}>
         <View>
           <TouchableWithoutFeedback title='Charecters' onPress={() => navigation.navigate('CharacterLookup')}>
-            <View style={styles.btn2}>
+            <View style={styles.btn1}>
               <Text style={styles.btnText}>Charecters</Text>
             </View>
           </TouchableWithoutFeedback>
-
+        
           <TouchableWithoutFeedback onPress={() => navigation.navigate('WeaponSkins')}>
             <View style={styles.btn2}>
               <Text style={styles.btnText}>Wepons Skins</Text>
@@ -32,10 +32,11 @@ function HomeScreen({navigation}){
           </TouchableWithoutFeedback>
 
           <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountLookUp')}>
-            <View style={styles.btn2}>
+            <View style={styles.btn3}>
               <Text style={styles.btnText}>Accounts</Text>
             </View>
-          </TouchableWithoutFeedback>
+          </TouchableWithoutFeedback> 
+          <StatusBar style="auto" />
         </View>
       </ImageBackground>
   );
@@ -354,6 +355,7 @@ export default function App() {
           <Stack.Screen name="AccountLookUp" component={AccountlookUp} options={{title: 'Account Finder'}} />
           <Stack.Screen name="Details" component={DetailsScreen} options={{title: 'Details'}} />
         </Stack.Navigator>
+        <StatusBar style="auto" />
       </NavigationContainer>
   );
 }
@@ -496,7 +498,6 @@ const styles = StyleSheet.create({
   },
 
   bg: {
-    justifyContent: 'center',
     resizeMode: 'cover',
     flex: 1
   },
@@ -509,14 +510,38 @@ const styles = StyleSheet.create({
     elevation:5
   },
 
+  btn1: {
+    paddingBottom:350,
+    paddingTop:30,
+    paddingHorizontal:51,
+    backgroundColor:"red",
+    marginLeft:10,
+    position:"absolute",
+    marginTop:25,
+    elevation:10,
+  },
+
+
   btn2: {
+    paddingBottom:350,
+    paddingTop:30,
     paddingHorizontal:20,
-    paddingVertical:10,
-    backgroundColor:'#f95f5c',
-    borderRadius:10,
+    backgroundColor:"green",
+    marginLeft:220,
+    position:"absolute",
+    marginTop:25,
     elevation:5,
+    
+    
+  },
+
+  btn3: {
+    paddingVertical:100,
+    backgroundColor:'black',
     marginHorizontal: 25,
-    marginVertical: 5,
+    marginTop:440,
+    marginLeft:10,
+    marginRight:8
   },
 
   btnText: {
