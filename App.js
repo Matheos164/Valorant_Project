@@ -9,6 +9,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import bg1 from './assets/bg.png';
 import bg2 from './assets/bg2.jpeg';
 import bg3 from './assets/bg3.jpeg';
+import char_BG from './assets/charecters_BG.webp';
+import Wepon_BG from './assets/wepons_BG.avif';
+import Account_BG from './assets/account_BG.jpeg';
 
 
 
@@ -17,28 +20,40 @@ import bg3 from './assets/bg3.jpeg';
 function HomeScreen({navigation}){
   // return the home screen with other screens navigators
   return(
-      <ImageBackground source={bg2} style={styles.bg}>
+      //<ImageBackground source={bg2} style={styles.bg}>
         <View>
-          <TouchableWithoutFeedback title='Charecters' onPress={() => navigation.navigate('CharacterLookup')}>
+          {/* <TouchableWithoutFeedback title='Charecters' onPress={() => navigation.navigate('CharacterLookup')}>
             <View style={styles.btn1}>
               <Text style={styles.btnText}>Charecters</Text>
             </View>
-          </TouchableWithoutFeedback>
+          </TouchableWithoutFeedback> */}
         
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('WeaponSkins')}>
+          <TouchableWithoutFeedback title='Charecters' onPress={() => navigation.navigate('CharacterLookup')}>
+              <Image style={styles.btn1} source={char_BG} />
+          </TouchableWithoutFeedback>
+
+          {/* <TouchableWithoutFeedback onPress={() => navigation.navigate('WeaponSkins')}>
             <View style={styles.btn2}>
               <Text style={styles.btnText}>Wepons Skins</Text>
             </View>
+          </TouchableWithoutFeedback> */}
+
+          <TouchableWithoutFeedback title='Wepons' onPress={() => navigation.navigate('WeaponSkins')}>
+              <Image style={styles.btn2} source={Wepon_BG} />
           </TouchableWithoutFeedback>
 
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountLookUp')}>
+          {/* <TouchableWithoutFeedback title='Accounts' onPress={() => navigation.navigate('AccountLookUp')}>
             <View style={styles.btn3}>
               <Text style={styles.btnText}>Accounts</Text>
             </View>
+          </TouchableWithoutFeedback>  */}
+
+          <TouchableWithoutFeedback title='Accounts' onPress={() => navigation.navigate('AccountLookUp')}>
+            <Image style={styles.btn3} source={Account_BG} />
           </TouchableWithoutFeedback> 
           <StatusBar style="auto" />
         </View>
-      </ImageBackground>
+      //</ImageBackground>
   );
 }
 
@@ -511,37 +526,33 @@ const styles = StyleSheet.create({
   },
 
   btn1: {
-    paddingBottom:350,
-    paddingTop:30,
-    paddingHorizontal:51,
-    backgroundColor:"red",
     marginLeft:10,
     position:"absolute",
     marginTop:25,
-    elevation:10,
+    width:200,
+    height:405,
+    resizeMode:'cover'
   },
 
 
   btn2: {
-    paddingBottom:350,
-    paddingTop:30,
-    paddingHorizontal:20,
-    backgroundColor:"green",
-    marginLeft:220,
+    marginLeft:215,
     position:"absolute",
     marginTop:25,
-    elevation:5,
-    
+    width:168,
+    height:405,
     
   },
 
   btn3: {
-    paddingVertical:100,
     backgroundColor:'black',
     marginHorizontal: 25,
     marginTop:440,
     marginLeft:10,
-    marginRight:8
+    marginRight:8,
+    width:374,
+    height:250,
+    resizeMode:'cover'
   },
 
   btnText: {
