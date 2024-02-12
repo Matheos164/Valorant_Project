@@ -20,36 +20,24 @@ import Account_BG from './assets/account_BG.jpeg';
 function HomeScreen({navigation}){
   // return the home screen with other screens navigators
   return(
-      //<ImageBackground source={bg2} style={styles.bg}>
+      //<ImageBackground source={bg3} style={styles.bg}>
         <View>
-          {/* <TouchableWithoutFeedback title='Charecters' onPress={() => navigation.navigate('CharacterLookup')}>
-            <View style={styles.btn1}>
-              <Text style={styles.btnText}>Charecters</Text>
-            </View>
-          </TouchableWithoutFeedback> */}
-        
           <TouchableWithoutFeedback title='Charecters' onPress={() => navigation.navigate('CharacterLookup')}>
+          <View style={styles.start}>
               <Image style={styles.btn1} source={char_BG} />
+          </View>
           </TouchableWithoutFeedback>
-
-          {/* <TouchableWithoutFeedback onPress={() => navigation.navigate('WeaponSkins')}>
-            <View style={styles.btn2}>
-              <Text style={styles.btnText}>Wepons Skins</Text>
-            </View>
-          </TouchableWithoutFeedback> */}
 
           <TouchableWithoutFeedback title='Wepons' onPress={() => navigation.navigate('WeaponSkins')}>
+          <View style={styles.end}>
               <Image style={styles.btn2} source={Wepon_BG} />
+          </View>
           </TouchableWithoutFeedback>
 
-          {/* <TouchableWithoutFeedback title='Accounts' onPress={() => navigation.navigate('AccountLookUp')}>
-            <View style={styles.btn3}>
-              <Text style={styles.btnText}>Accounts</Text>
-            </View>
-          </TouchableWithoutFeedback>  */}
-
           <TouchableWithoutFeedback title='Accounts' onPress={() => navigation.navigate('AccountLookUp')}>
-            <Image style={styles.btn3} source={Account_BG} />
+            <View style={styles.center}>
+              <Image style={styles.btn3} source={Account_BG} />
+            </View>
           </TouchableWithoutFeedback> 
           <StatusBar style="auto" />
         </View>
@@ -526,39 +514,49 @@ const styles = StyleSheet.create({
   },
 
   btn1: {
-    marginLeft:10,
     position:"absolute",
     marginTop:25,
-    width:200,
+    width:190,
     height:405,
-    resizeMode:'cover'
+    resizeMode:'cover',
+    display: 'flex'
   },
 
 
   btn2: {
-    marginLeft:215,
     position:"absolute",
     marginTop:25,
-    width:168,
+    width:175,
     height:405,
+    display: 'flex'
     
   },
 
   btn3: {
-    backgroundColor:'black',
-    marginHorizontal: 25,
     marginTop:440,
-    marginLeft:10,
-    marginRight:8,
-    width:374,
+    width:380,
     height:250,
-    resizeMode:'cover'
+    resizeMode:'cover',
+
   },
 
   btnText: {
     fontSize:20,
     color:'white',
     textAlign:'center'
+  },
+
+  center: {
+    alignItems: 'center'
+  },
+
+  start: {
+    alignItems: 'flex-start',
+    marginLeft:7
+  },
+  end: {
+    alignItems: 'flex-end',
+    marginRight: 7
   },
 });
 
