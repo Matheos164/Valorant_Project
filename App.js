@@ -9,6 +9,9 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import bg1 from './assets/bg.png';
 import bg2 from './assets/bg2.jpeg';
 import bg3 from './assets/bg3.jpeg';
+import char_BG from './assets/charecters_BG.webp';
+import Wepon_BG from './assets/wepons_BG.avif';
+import Account_BG from './assets/account_BG.jpeg';
 
 
 
@@ -17,28 +20,28 @@ import bg3 from './assets/bg3.jpeg';
 function HomeScreen({navigation}){
   // return the home screen with other screens navigators
   return(
-      <ImageBackground source={bg2} style={styles.bg}>
+      //<ImageBackground source={bg3} style={styles.bg}>
         <View>
           <TouchableWithoutFeedback title='Charecters' onPress={() => navigation.navigate('CharacterLookup')}>
-            <View style={styles.btn1}>
-              <Text style={styles.btnText}>Charecters</Text>
-            </View>
-          </TouchableWithoutFeedback>
-        
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('WeaponSkins')}>
-            <View style={styles.btn2}>
-              <Text style={styles.btnText}>Wepons Skins</Text>
-            </View>
+          <View style={styles.start}>
+              <Image style={styles.btn1} source={char_BG} />
+          </View>
           </TouchableWithoutFeedback>
 
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountLookUp')}>
-            <View style={styles.btn3}>
-              <Text style={styles.btnText}>Accounts</Text>
+          <TouchableWithoutFeedback title='Wepons' onPress={() => navigation.navigate('WeaponSkins')}>
+          <View style={styles.end}>
+              <Image style={styles.btn2} source={Wepon_BG} />
+          </View>
+          </TouchableWithoutFeedback>
+
+          <TouchableWithoutFeedback title='Accounts' onPress={() => navigation.navigate('AccountLookUp')}>
+            <View style={styles.center}>
+              <Image style={styles.btn3} source={Account_BG} />
             </View>
           </TouchableWithoutFeedback> 
           <StatusBar style="auto" />
         </View>
-      </ImageBackground>
+      //</ImageBackground>
   );
 }
 
@@ -511,43 +514,49 @@ const styles = StyleSheet.create({
   },
 
   btn1: {
-    paddingBottom:350,
-    paddingTop:30,
-    paddingHorizontal:51,
-    backgroundColor:"red",
-    marginLeft:10,
     position:"absolute",
     marginTop:25,
-    elevation:10,
+    width:190,
+    height:405,
+    resizeMode:'cover',
+    display: 'flex'
   },
 
 
   btn2: {
-    paddingBottom:350,
-    paddingTop:30,
-    paddingHorizontal:20,
-    backgroundColor:"green",
-    marginLeft:220,
     position:"absolute",
     marginTop:25,
-    elevation:5,
-    
+    width:175,
+    height:405,
+    display: 'flex'
     
   },
 
   btn3: {
-    paddingVertical:100,
-    backgroundColor:'black',
-    marginHorizontal: 25,
     marginTop:440,
-    marginLeft:10,
-    marginRight:8
+    width:380,
+    height:250,
+    resizeMode:'cover',
+
   },
 
   btnText: {
     fontSize:20,
     color:'white',
     textAlign:'center'
+  },
+
+  center: {
+    alignItems: 'center'
+  },
+
+  start: {
+    alignItems: 'flex-start',
+    marginLeft:7
+  },
+  end: {
+    alignItems: 'flex-end',
+    marginRight: 7
   },
 });
 
