@@ -1,6 +1,3 @@
-/*
-StAuth10244: I Matheos Amanuel, 000848470 certify that this material is my original work. No other person's work has been used without due acknowledgement. I have not made my work available to anyone else.
-*/
 import { StatusBar } from 'expo-status-bar';
 import { Button, StyleSheet, Text, View, ActivityIndicator, ScrollView, TouchableOpacity, Image, ImageBackground, TextInput, TouchableWithoutFeedback } from 'react-native';
 import React, { useEffect, useState } from "react";
@@ -20,28 +17,29 @@ import Account_BG from './assets/account_BG.jpeg';
 function HomeScreen({navigation}){
   // return the home screen with other screens navigators
   return(
-      //<ImageBackground source={bg3} style={styles.bg}>
-        <View>
-          <TouchableWithoutFeedback title='Charecters' onPress={() => navigation.navigate('CharacterLookup')}>
-          <View style={styles.start}>
-              <Image style={styles.btn1} source={char_BG} />
+    <View style={styles.container}>
+      {/* Top Row for Characters and Weapons */}
+      <View style={styles.row}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('CharacterLookup')}>
+          <View style={styles.shadowWrapper}>
+            <Image style={styles.btn1} source={char_BG} />
           </View>
-          </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
 
-          <TouchableWithoutFeedback title='Wepons' onPress={() => navigation.navigate('WeaponSkins')}>
-          <View style={styles.end}>
-              <Image style={styles.btn2} source={Wepon_BG} />
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('WeaponSkins')}>
+          <View style={styles.shadowWrapper}>
+            <Image style={styles.btn2} source={Wepon_BG} />
           </View>
-          </TouchableWithoutFeedback>
+        </TouchableWithoutFeedback>
+      </View>
 
-          <TouchableWithoutFeedback title='Accounts' onPress={() => navigation.navigate('AccountLookUp')}>
-            <View style={styles.center}>
-              <Image style={styles.btn3} source={Account_BG} />
-            </View>
-          </TouchableWithoutFeedback> 
-          <StatusBar style="auto" />
+      {/* Bottom Section for Accounts */}
+      <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountLookUp')}>
+        <View style={styles.shadowWrapper}>
+          <Image style={styles.btn3} source={Account_BG} />
         </View>
-      //</ImageBackground>
+      </TouchableWithoutFeedback>
+    </View>
   );
 }
 
@@ -352,7 +350,7 @@ export default function App() {
   return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name="Home" component={HomeScreen} options={{title: 'Home'}} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{title: 'ValoINFO'}} />
           <Stack.Screen name="CharacterLookup" component={CharecterScreen} options={{title: 'Charecters'}} />
           <Stack.Screen name="WeaponSkins" component={WeponsScreenScreen} options={{title: 'Wepon Skins'}} />
           <Stack.Screen name="AccountLookUp" component={AccountlookUp} options={{title: 'Account Finder'}} />
@@ -513,50 +511,50 @@ const styles = StyleSheet.create({
     elevation:5
   },
 
-  btn1: {
-    position:"absolute",
-    marginTop:25,
-    width:190,
-    height:405,
-    resizeMode:'cover',
-    display: 'flex'
-  },
-
-
-  btn2: {
-    position:"absolute",
-    marginTop:25,
-    width:175,
-    height:405,
-    display: 'flex'
-    
-  },
-
-  btn3: {
-    marginTop:440,
-    width:380,
-    height:250,
-    resizeMode:'cover',
-
-  },
-
   btnText: {
     fontSize:20,
     color:'white',
     textAlign:'center'
   },
 
-  center: {
-    alignItems: 'center'
+row: {
+    flexDirection: 'row', 
+    justifyContent: 'space-evenly', // Spreads the two top images apart
+    width: '100%',
+    marginBottom: 20,
   },
 
-  start: {
-    alignItems: 'flex-start',
-    marginLeft:7
+  // The Shadow Wrapper
+  shadowWrapper: {
+    backgroundColor: '#ffffffff',
+    borderRadius: 15,
+    // iOS Shadow
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 1,
+    shadowRadius: 7.5,
+    // Android Shadow
+    elevation: 10,
   },
-  end: {
-    alignItems: 'flex-end',
-    marginRight: 7
+
+  btn1: {
+    width: 170,
+    height: 380,
+    borderRadius: 15,
+
   },
+
+  btn2: {
+    width: 170,
+    height: 380,
+    borderRadius: 15,
+  },
+  
+  btn3: {
+    width: 360,
+    height: 200,
+    borderRadius: 15,
+  },
+
 });
 
