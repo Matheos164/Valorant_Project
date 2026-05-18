@@ -22,13 +22,17 @@ function HomeScreen({navigation}){
       <View style={styles.row}>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('CharacterLookup')}>
           <View style={styles.shadowWrapper}>
-            <Image style={styles.btn1} source={char_BG} />
+            <ImageBackground style={styles.btn1} source={char_BG} >
+              <Text style={styles.btnText}>Characters</Text>
+            </ImageBackground>
           </View>
         </TouchableWithoutFeedback>
 
         <TouchableWithoutFeedback onPress={() => navigation.navigate('WeaponSkins')}>
           <View style={styles.shadowWrapper}>
-            <Image style={styles.btn2} source={Wepon_BG} />
+            <ImageBackground style={styles.btn2} source={Wepon_BG} >
+              <Text style={styles.btnText}>Weapons</Text>
+            </ImageBackground>
           </View>
         </TouchableWithoutFeedback>
       </View>
@@ -36,7 +40,9 @@ function HomeScreen({navigation}){
       {/* Bottom Section for Accounts */}
       <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountLookUp')}>
         <View style={styles.shadowWrapper}>
-          <Image style={styles.btn3} source={Account_BG} />
+          <ImageBackground style={styles.btn3} source={Account_BG} >
+            <Text style={styles.btnText2}>Accounts</Text>
+          </ImageBackground>
         </View>
       </TouchableWithoutFeedback>
     </View>
@@ -350,11 +356,11 @@ export default function App() {
   return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name="Home" component={HomeScreen} options={{title: 'ValoINFO'}} />
-          <Stack.Screen name="CharacterLookup" component={CharecterScreen} options={{title: 'Charecters'}} />
-          <Stack.Screen name="WeaponSkins" component={WeponsScreenScreen} options={{title: 'Wepon Skins'}} />
-          <Stack.Screen name="AccountLookUp" component={AccountlookUp} options={{title: 'Account Finder'}} />
-          <Stack.Screen name="Details" component={DetailsScreen} options={{title: 'Details'}} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{title: ''}} />
+          <Stack.Screen name="CharacterLookup" component={CharecterScreen} options={{title: ''}} />
+          <Stack.Screen name="WeaponSkins" component={WeponsScreenScreen} options={{title: ''}} />
+          <Stack.Screen name="AccountLookUp" component={AccountlookUp} options={{title: ''}} />
+          <Stack.Screen name="Details" component={DetailsScreen} options={{title: ''}} />
         </Stack.Navigator>
         <StatusBar style="auto" />
       </NavigationContainer>
@@ -554,6 +560,32 @@ row: {
     width: 360,
     height: 200,
     borderRadius: 15,
+  },
+
+  btnText: {
+    fontSize: 25,
+    fontFamily: 'arial',
+    color: 'white',
+    textAlign: 'center',
+    paddingTop: 50,
+    fontWeight: 'bold',
+    shadowColor: 'black',
+    shadowOffset: { width: -5, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 10
+  },
+
+  btnText2: {
+    fontSize: 30,
+    fontFamily: 'arial',
+    color: 'white',
+    textAlign: 'center',
+    paddingTop: 75,
+    fontWeight: 'bold',
+    shadowColor: 'black',
+    shadowOffset: { width: -5, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 10
   },
 
 });
