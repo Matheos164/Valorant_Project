@@ -6,6 +6,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import bg1 from './assets/bg.png';
 import bg2 from './assets/bg2.jpeg';
 import bg3 from './assets/bg3.jpeg';
+import bg4 from './assets/MainBG.avif';
 import char_BG from './assets/charecters_BG.webp';
 import Wepon_BG from './assets/wepons_BG.avif';
 import Account_BG from './assets/account_BG.jpeg';
@@ -18,6 +19,8 @@ function HomeScreen({navigation}){
   // return the home screen with other screens navigators
   return(
     <View style={styles.container}>
+    <ImageBackground source={bg4} style={styles.bg}>
+      <Text style={styles.title}>Valorant Info App</Text>
       {/* Top Row for Characters and Weapons */}
       <View style={styles.row}>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('CharacterLookup')}>
@@ -39,13 +42,15 @@ function HomeScreen({navigation}){
 
       {/* Bottom Section for Accounts */}
       <TouchableWithoutFeedback onPress={() => navigation.navigate('AccountLookUp')}>
-        <View style={styles.shadowWrapper}>
+        <View style={styles.shadowWrapper, {marginHorizontal: 20}}>
           <ImageBackground style={styles.btn3} source={Account_BG} >
             <Text style={styles.btnText2}>Accounts</Text>
           </ImageBackground>
         </View>
       </TouchableWithoutFeedback>
+      </ImageBackground>
     </View>
+
   );
 }
 
@@ -356,11 +361,11 @@ export default function App() {
   return (
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Home'>
-          <Stack.Screen name="Home" component={HomeScreen} options={{title: ''}} />
-          <Stack.Screen name="CharacterLookup" component={CharecterScreen} options={{title: ''}} />
-          <Stack.Screen name="WeaponSkins" component={WeponsScreenScreen} options={{title: ''}} />
-          <Stack.Screen name="AccountLookUp" component={AccountlookUp} options={{title: ''}} />
-          <Stack.Screen name="Details" component={DetailsScreen} options={{title: ''}} />
+          <Stack.Screen name="Home" component={HomeScreen} options={{title: '', headerShown: false}} />
+          <Stack.Screen name="CharacterLookup" component={CharecterScreen} options={{title: '', headerShown: false}} />
+          <Stack.Screen name="WeaponSkins" component={WeponsScreenScreen} options={{title: '', headerShown: false}} />
+          <Stack.Screen name="AccountLookUp" component={AccountlookUp} options={{title: '', headerShown: false}} />
+          <Stack.Screen name="Details" component={DetailsScreen} options={{title: '', headerShown: false}} />
         </Stack.Navigator>
         <StatusBar style="auto" />
       </NavigationContainer>
@@ -374,6 +379,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center", 
     alignItems: "center",
+    backgroundColor:"#dbdbdb",
   },
 
   charecters:{
@@ -528,6 +534,7 @@ row: {
     justifyContent: 'space-evenly', // Spreads the two top images apart
     width: '100%',
     marginBottom: 20,
+    paddingTop: 125,
   },
 
   // The Shadow Wrapper
@@ -557,14 +564,13 @@ row: {
   },
   
   btn3: {
-    width: 360,
     height: 200,
     borderRadius: 15,
   },
 
   btnText: {
     fontSize: 25,
-    fontFamily: 'arial',
+    fontFamily: 'Avenir',
     color: 'white',
     textAlign: 'center',
     paddingTop: 50,
@@ -577,7 +583,7 @@ row: {
 
   btnText2: {
     fontSize: 30,
-    fontFamily: 'arial',
+    fontFamily: 'Avenir',
     color: 'white',
     textAlign: 'center',
     paddingTop: 75,
