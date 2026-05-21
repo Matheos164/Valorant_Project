@@ -20,7 +20,7 @@ function HomeScreen({navigation}){
   return(
     <View style={styles.container}>
     <ImageBackground source={bg4} style={styles.bg}>
-      <Text style={styles.title}>Valorant Info App</Text>
+      <Text style={styles.AppTitle}>Valorant Info App</Text>
       {/* Top Row for Characters and Weapons */}
       <View style={styles.row}>
         <TouchableWithoutFeedback onPress={() => navigation.navigate('CharacterLookup')}>
@@ -96,33 +96,32 @@ function CharecterScreen({navigation}){
     if(isLoading){
       return <ActivityIndicator size="large"/>;
     }
-
     if(error){
       return <Text>{error}</Text>;
     }
-
     // return the page 
-    return (<View style={styles.container}>
-              
-                {data.map((item, index) =>(
-                  <TouchableOpacity key={index} onPress={() => handlePress(data[index].uuid)}>
-                    <ImageBackground source={bg3} style ={styles}>
+    return (
+    <View style={styles}>
+        <Text style={styles.AppTitle}>Valorant Agents</Text>
+        {data.map((item, index) =>(<TouchableOpacity key={index} onPress={() => handlePress(data[index].uuid)}>
                       <View style={styles.charecters}>
                         <Image style={styles.logo} source={{ uri: item.displayIcon }} />
                         <Text style={styles.titleName} >{item.displayName}</Text>
                       </View>
-                    </ImageBackground>
-                  </TouchableOpacity>
-                ))}
-            </View>);
+        </TouchableOpacity>))}
+    </View>);
     
   }
 
 
   return(
-    <ScrollView>
+  <View style={styles.container}>
+    <ImageBackground source={bg4} style ={styles.Charbg}>
+      <ScrollView>
         {Charecters()}
-    </ScrollView>
+      </ScrollView>
+    </ImageBackground>
+  </View>
   );
 }
 
@@ -223,11 +222,9 @@ function DetailsScreen({route}) {
     if(isLoading){
       return <ActivityIndicator size="large"/>;
     }
-
     if(error){
       return <Text>{error}</Text>;
     }
-
       // display the page
       return (
               <View style={styles.container}>
@@ -377,18 +374,26 @@ const styles = StyleSheet.create({
 
   container: {
     flex: 1,
+    resizeMode: 'cover',
     justifyContent: "center", 
     alignItems: "center",
     backgroundColor:"#dbdbdb",
   },
 
   charecters:{
-    paddingHorizontal: 80,
-    borderColor: 'white',
-    borderRadius: 7,
+    flex: 1,
+    justifyContent: "center", 
+    alignItems: "center",
+    backgroundColor:"#ffffff17",
+    paddingTop: 20,
+    borderColor: 'black',
+    borderRadius: 10,
     margin:20,
-
     borderWidth: 3,
+    shadowColor: 'black',
+    shadowOffset: { width: -5, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 10
   },
 
   abilitiesContainer: {
@@ -452,10 +457,29 @@ const styles = StyleSheet.create({
   },
 
   titleName: {
-    fontSize: 28,
+    fontSize: 30,
     paddingTop: 15,
+    fontFamily: 'Avenir',
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
+    fontWeight: 'bold',
+    shadowColor: 'black',
+    shadowOffset: { width: -5, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 10
+  },
+
+  AppTitle: {
+    fontSize: 30,
+    paddingTop: 85,
+    textAlign: 'center',
+    color: 'white',
+    fontFamily: 'Avenir',
+    fontWeight: 'bold',
+    shadowColor: 'black',
+    shadowOffset: { width: -5, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 10
   },
 
   agentTitle: {
@@ -534,7 +558,7 @@ row: {
     justifyContent: 'space-evenly', // Spreads the two top images apart
     width: '100%',
     marginBottom: 20,
-    paddingTop: 125,
+    paddingTop: 20,
   },
 
   // The Shadow Wrapper
@@ -554,7 +578,8 @@ row: {
     width: 170,
     height: 380,
     borderRadius: 15,
-
+    // resizeMode: 'cover',
+    // flex: 1,
   },
 
   btn2: {
@@ -592,6 +617,12 @@ row: {
     shadowOffset: { width: -5, height: 2 },
     shadowOpacity: 1,
     shadowRadius: 10
+  },
+
+  Charbg: {
+    resizeMode: 'cover',
+    flex: 1,
+    width: '100%',
   },
 
 });
