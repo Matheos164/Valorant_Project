@@ -101,7 +101,7 @@ function CharecterScreen({navigation}){
     }
     // return the page 
     return (
-    <View style={styles}>
+    <View>
         <Text style={styles.AppTitle}>Valorant Agents</Text>
         {data.map((item, index) =>(<TouchableOpacity key={index} onPress={() => handlePress(data[index].uuid)}>
                       <View style={styles.charecters}>
@@ -228,7 +228,7 @@ function DetailsScreen({route}) {
       // display the page
       return (
               <View style={styles.container}>
-                <ImageBackground source={bg3} style={styles.bg}>
+                <ImageBackground source={bg3} style={styles.bg, {shadowColor: "#101822", shadowOffset: { width: 0, height: 40 }, shadowOpacity: 1, shadowRadius: 20}}>
                   <View style={styles.imgContainer}>
                     <ImageBackground style={styles.img} source={{ uri: data.background}}  >
                     <Image style={styles.img} source={{ uri: data.fullPortrait }} />
@@ -386,7 +386,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor:"#ffffff17",
     paddingTop: 20,
-    borderColor: 'black',
+    borderColor: "#95000014",
     borderRadius: 10,
     margin:20,
     borderWidth: 3,
@@ -418,6 +418,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     margin:10,
     borderWidth: 2,
+    marginTop: 50,
 
   },
 
@@ -425,6 +426,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     width: 175,
     height: 150,
+
   },
 
   logosm: {
@@ -445,9 +447,10 @@ const styles = StyleSheet.create({
   },
   mainDesc: {
     marginHorizontal: 100,
-    paddingVertical: 30, 
+    paddingVertical: 15, 
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
+    fontSize: 15,
   },
 
   title: {
@@ -457,16 +460,16 @@ const styles = StyleSheet.create({
   },
 
   titleName: {
-    fontSize: 30,
-    paddingTop: 15,
+    fontSize: 45,
+    paddingTop: 20,
     fontFamily: 'Avenir',
     textAlign: 'center',
-    color: 'white',
+    color: "#ffffff",
     fontWeight: 'bold',
-    shadowColor: 'black',
+    shadowColor: "#ac0505",
     shadowOffset: { width: -5, height: 2 },
     shadowOpacity: 1,
-    shadowRadius: 10
+    shadowRadius: 10,
   },
 
   AppTitle: {
@@ -491,7 +494,11 @@ const styles = StyleSheet.create({
 
   creator: {
     textAlign: 'center',
-    color: 'white'
+    color: 'white',
+    fontStyle: 'italic',
+    fontWeight: 'bold',
+    fontSize: 12,
+    textDecorationLine: 'underline',
   },
 
   weponImg: {
@@ -565,13 +572,10 @@ row: {
   shadowWrapper: {
     backgroundColor: '#ffffffff',
     borderRadius: 15,
-    // iOS Shadow
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 1,
     shadowRadius: 7.5,
-    // Android Shadow
-    elevation: 10,
   },
 
   btn1: {
@@ -623,6 +627,7 @@ row: {
     resizeMode: 'cover',
     flex: 1,
     width: '100%',
+
   },
 
 });
