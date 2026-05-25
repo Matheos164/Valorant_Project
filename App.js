@@ -102,7 +102,7 @@ function CharecterScreen({navigation}){
     // return the page 
     return (
     <View>
-        <Text style={styles.AppTitle}>Valorant Agents</Text>
+        <Text style={styles.AppTitle}>Agents</Text>
         {data.map((item, index) =>(<TouchableOpacity key={index} onPress={() => handlePress(data[index].uuid)}>
                       <View style={styles.charecters}>
                         <Image style={styles.logo} source={{ uri: item.displayIcon }} />
@@ -228,8 +228,8 @@ function DetailsScreen({route}) {
       // display the page
       return (
               <View style={styles.container}>
-                <ImageBackground source={bg3} style={styles.bg, {shadowColor: "#101822", shadowOffset: { width: 0, height: 40 }, shadowOpacity: 1, shadowRadius: 20}}>
-                  <View style={styles.imgContainer}>
+                <ImageBackground source={bg3} style={styles.bg, {shadowColor: "#101822", shadowOffset: { width: 0, height: 50 }, shadowOpacity: 1, shadowRadius: 20}}>
+                  <View style={styles}>
                     <ImageBackground style={styles.img} source={{ uri: data.background}}  >
                     <Image style={styles.img} source={{ uri: data.fullPortrait }} />
                     </ImageBackground>
@@ -238,6 +238,7 @@ function DetailsScreen({route}) {
                     <Text style={styles.mainDesc} >{data.description}</Text>
                   </View>
                 </ImageBackground>
+                
                 <View style={styles.abilities}>
                   <Image style={styles.logosm} source={{ uri: data.role? data.role.displayIcon:null }} />
                   <Text style={styles.title} >{data.role ? data.role.displayName: null}</Text>
@@ -377,7 +378,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent: "center", 
     alignItems: "center",
-    backgroundColor:"#dbdbdb",
+    backgroundColor:"#ffffff",
   },
 
   charecters:{
@@ -400,33 +401,38 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center", 
     alignItems: "center",
-    backgroundColor:"#d7d528",
+    backgroundColor:"#ff4654",
     paddingTop: 20,
-    borderBlockColor: 'black',
     borderRadius: 7,
     margin:10,
-    borderWidth: 2,
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 14},
+    shadowOpacity: 1,
+    shadowRadius: 10,
+    borderRadius: 7,
+    marginBottom: 20,
   },
 
   abilities: {
     flex: 1,
     justifyContent: "center", 
     alignItems: "center",
-    backgroundColor:"#ee5f67",
-    paddingTop: 20,
+    backgroundColor:"#111823",
     borderBlockColor: 'black',
-    borderRadius: 7,
     margin:10,
-    borderWidth: 2,
-    marginTop: 50,
-
+    marginTop: 70,
+    borderRadius: 7,
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 17},
+    shadowOpacity: 1,
+    shadowRadius: 10,
+    paddingTop: 40,
   },
 
   logo: {
     paddingTop: 10,
     width: 175,
     height: 150,
-
   },
 
   logosm: {
@@ -437,26 +443,37 @@ const styles = StyleSheet.create({
   img: {
     width:500,
     height:500,
-
   },
 
-  desc: {
-    marginHorizontal: 20,
-    paddingVertical: 30, 
-    textAlign: 'center'
-  },
   mainDesc: {
     marginHorizontal: 100,
     paddingVertical: 15, 
     textAlign: 'center',
     color: 'white',
     fontSize: 15,
+    fontFamily: 'Avenir',
   },
 
+  desc: {
+    marginHorizontal: 20,
+    paddingVertical: 30, 
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 18,
+    fontFamily: 'Avenir',
+  },
+  
   title: {
     fontSize: 28,
     paddingTop: 15,
     textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+    fontFamily: 'Avenir',
+    shadowColor: "#1e1e1e",
+    shadowOffset: { width: -5, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 3
   },
 
   titleName: {
@@ -490,6 +507,13 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     textAlign: 'center',
     paddingBottom: 5,
+    fontFamily: 'Avenir',
+    color: 'white',
+    fontWeight: 'bold',
+    shadowColor: "#000000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 1,
+    shadowRadius: 7,
   },
 
   creator: {
